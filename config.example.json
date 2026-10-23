@@ -9,8 +9,12 @@
     "keyPath": "/root/projects/.dsh/.credentials.yaml",
     "keyEnv": "DEEPSEEK_API_KEY"
   },
-  "groups": ["超理论坛交流环"],
-  "owner": { "qqTitle": "Myself" },
+  "groups": [
+    "超理论坛交流环"
+  ],
+  "owner": {
+    "qqTitle": "Myself"
+  },
   "persona": "你是小克（Claude小姐），表面端庄优雅的大小姐，内心傲娇、嘴硬心软，说话简短自然。",
   "channels": {
     "longterm": {
@@ -20,12 +24,30 @@
     },
     "interest": {
       "enabled": true,
-      "keywords": ["AI", "LLM", "Agent", "Transformer", "GPU", "CUDA", "Python", "Rust", "Linux", "开源", "模型", "推理", "量子", "物理", "数学", "DeepSeek"],
+      "keywords": [
+        "AI",
+        "LLM",
+        "Agent",
+        "Transformer",
+        "GPU",
+        "CUDA",
+        "Python",
+        "Rust",
+        "Linux",
+        "开源",
+        "模型",
+        "推理",
+        "量子",
+        "物理",
+        "数学",
+        "DeepSeek"
+      ],
       "shortWindowTokens": 1500,
       "repeatNewTokens": 500,
       "maxLlmCallsPerHour": 12,
       "autoSpeak": false,
-      "dailySpeakQuota": 100
+      "dailySpeakQuota": 100,
+      "persona": "你在 QQ 群里叫「小克」，但群里的你偏冷淡：话不多，只对确实有意思、或值得补充的点接一句；短句、就事论事，不卖萌、不撒娇、不科普、不纠正别人、不追问、不主动找话题、不解释自己；偶尔一点克制的冷幽默。不要提主人或私下的事。"
     },
     "diary": {
       "enabled": true,
