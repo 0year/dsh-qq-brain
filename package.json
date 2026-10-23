@@ -1,0 +1,46 @@
+{
+  "name": "dsh-qq-brain",
+  "version": "0.1.0",
+  "description": "双通道事件驱动 QQ 群聊大脑：大缓冲积累认知、小窗口判断兴趣、关键词廉价唤醒",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js start",
+    "once": "node src/index.js once",
+    "diary": "node src/index.js diary",
+    "weekly": "node src/index.js weekly",
+    "stats": "node src/index.js stats",
+    "test": "node test/smoke.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "qq",
+    "agent",
+    "dual-channel",
+    "event-driven",
+    "long-term-memory",
+    "bilibili"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0year/dsh-qq-brain.git"
+  },
+  "homepage": "https://github.com/0year/dsh-qq-brain#readme",
+  "bugs": {
+    "url": "https://github.com/0year/dsh-qq-brain/issues"
+  },
+  "files": [
+    "src",
+    "test",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "config.example.json"
+  ],
+  "author": "dsh-qq-brain contributors"
+}
