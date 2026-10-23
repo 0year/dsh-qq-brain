@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1 (2026-10-23)
+
+- 兴趣通道新增「时间衰减软触发」：同话题超过 `repeatMaxAgeMinutes`（默认 60 分钟）且有少量新内容即可再次判断，避免长期静默
+- 默认 `repeatNewTokens` 从 500 降到 150，`maxLlmCallsPerHour` 从 12 提到 20（更活跃，但仍有预算闸）
+- 文档/示例配置同步
+
 ## v0.2.0 (2026-10-23)
 
 - 新增双人格：群聊人设（`channels.interest.persona`，默认冷淡、就事论事）与主人私聊/总结人设（顶层 `persona`）分离
