@@ -104,6 +104,9 @@ QQ 通知事件（status 服务 /qq/events）
 
 **预算**：`callTimes` 环形记录最近 1 小时调用 → 超过 `maxLlmCallsPerHour` 直接跳过。
 
+**人设分离**：群聊用 `channels.interest.persona`（默认冷淡、就事论事），
+顶层 `persona`（傲娇大小姐）留给主人私聊与日记/周报总结——「傲娇只给主人」。
+
 **上下文**：`W_short` 预算内最近消息 + 相关发送者的画像摘要 + 群特征。
 
 **模型输出**：
