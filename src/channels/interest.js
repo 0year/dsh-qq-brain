@@ -81,7 +81,7 @@ class InterestChannel {
     let decision;
     try {
       decision = await this.llm.askJson({
-        system: this.cfg.persona + '\n你正在决定要不要在群里说一句话。只输出 JSON。',
+        system: (this.ic.persona || this.cfg.persona) + '\n你正在决定要不要在群里说一句话。只输出 JSON。',
         prompt,
         maxTokens: 500,
       });
