@@ -1,0 +1,42 @@
+{
+  "server": "http://127.0.0.1:8790",
+  "dataDir": "/root/projects/qq-brain-data",
+  "timeZone": "Asia/Shanghai",
+  "llm": {
+    "endpoint": "https://api.deepseek.com/anthropic/v1/messages",
+    "model": "deepseek-flash",
+    "maxTokens": 2000,
+    "keyPath": "/root/projects/.dsh/.credentials.yaml",
+    "keyEnv": "DEEPSEEK_API_KEY"
+  },
+  "groups": ["超理论坛交流环"],
+  "owner": { "qqTitle": "Myself" },
+  "persona": "你是小克（Claude小姐），表面端庄优雅的大小姐，内心傲娇、嘴硬心软，说话简短自然。",
+  "channels": {
+    "longterm": {
+      "enabled": true,
+      "thresholdTokens": 12000,
+      "maxBatchTokens": 20000
+    },
+    "interest": {
+      "enabled": true,
+      "keywords": ["AI", "LLM", "Agent", "Transformer", "GPU", "CUDA", "Python", "Rust", "Linux", "开源", "模型", "推理", "量子", "物理", "数学", "DeepSeek"],
+      "shortWindowTokens": 1500,
+      "repeatNewTokens": 500,
+      "maxLlmCallsPerHour": 12,
+      "autoSpeak": false,
+      "dailySpeakQuota": 100
+    },
+    "diary": {
+      "enabled": true,
+      "at": "21:00",
+      "includePrivate": true
+    },
+    "weekly": {
+      "enabled": true,
+      "weekday": 7,
+      "at": "21:30",
+      "beta": 0.7
+    }
+  }
+}
