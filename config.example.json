@@ -19,7 +19,7 @@
   "channels": {
     "longterm": {
       "enabled": true,
-      "thresholdTokens": 12000,
+      "thresholdTokens": 4000,
       "maxBatchTokens": 20000
     },
     "interest": {
