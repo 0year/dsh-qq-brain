@@ -1,6 +1,6 @@
 {
   "name": "dsh-qq-brain",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "双通道事件驱动 QQ 群聊大脑：大缓冲积累认知、小窗口判断兴趣、关键词廉价唤醒",
   "type": "commonjs",
   "main": "src/index.js",
