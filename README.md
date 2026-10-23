@@ -161,8 +161,10 @@ nohup node src/index.js start >/tmp/qq-brain.out 2>&1 &
 |---|---|---|
 | `thresholdTokens` (T_long) | 12000 | 长期学习触发阈值（累计消息 token） |
 | `shortWindowTokens` (W_short) | 1500 | 兴趣触发后读取的近期上下文上限 |
-| `repeatNewTokens` (T_repeat) | 500 | 同一话题再次触发所需的新增消息 token |
-| `maxLlmCallsPerHour` | 12 | 兴趣通道每小时最多调用模型次数（预算闸） |
+| `repeatNewTokens` (T_repeat) | 150 | 同一话题再次触发所需的新增消息 token |
+| `repeatMaxAgeMinutes` | 60 | 软触发：同话题超过这么久、且有少量新内容时可提前再判断（0=关闭） |
+| `repeatMaxAgeMinTokens` | 60 | 软触发所需的最少新增 token |
+| `maxLlmCallsPerHour` | 20 | 兴趣通道每小时最多调用模型次数（预算闸） |
 | `autoSpeak` | false | 是否允许自动在群里发言（默认只记录决策） |
 | `dailySpeakQuota` | 100 | 每天群发言上限 |
 | `beta` | 0.7 | 周报里上周事件的**时间衰减系数**（0~2） |
