@@ -72,6 +72,14 @@ QQ 通知事件（status 服务 /qq/events）
   "profiles": {
     "昵称": {
       "communication_style": {"directness":"high","verbosity":"low","humor":"medium"},
+      "language_style": {
+        "sentence_length": "short",
+        "punctuation_habit": "少用句末标点，爱用问号/括号",
+        "emoji_usage": "medium",
+        "tone": "技术吐槽与玩梗混杂",
+        "catchphrases": ["buff拉满", "可还行"],
+        "style_examples": ["逐字摘自聊天记录的招牌原话"]
+      },
       "interests": ["理论物理","学术八卦"],
       "behavior": ["短句接梗"],
       "notes": "爱用联想插梗",
@@ -106,6 +114,8 @@ QQ 通知事件（status 服务 /qq/events）
 
 **人设分离**：群聊用 `channels.interest.persona`（默认冷淡、就事论事），
 顶层 `persona`（傲娇大小姐）留给主人私聊与日记/周报总结——「傲娇只给主人」。
+**风格模仿**：兴趣通道 prompt 会注入 `profiles.groupStyle`（群的整体说话方式）与相关发言者的
+`language_style`（含口头禅与招牌例句），并要求回复必须模仿群风格。
 
 **上下文**：`W_short` 预算内最近消息 + 相关发送者的画像摘要 + 群特征。
 
