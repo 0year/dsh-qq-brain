@@ -50,9 +50,20 @@ class InterestChannel {
     const lines = ctx.map(m => m.sender + '：' + m.text);
     const profiles = this.store.profiles.senders || {};
     const relevantProfiles = ctx.map(m => m.sender).filter((v, i, a) => a.indexOf(v) === i)
-      .map(name => { const p = profiles[name]; return p ? name + '：' + JSON.stringify({ style: p.communication_style || {}, interests: p.interests || [] }) : null; })
+      .map(name => {
+        const p = profiles[name];
+        if (!p) return null;
+        const style = p.language_style || {};
+        const ex = (p.style_examples || []).slice(0, 2);
+        return name + '：说话长短=' + (style.sentence_length || '?')
+          + '，标点习惯=' + (style.punctuation_habit || '?')
+          + '，口头禅=' + JSON.stringify(style.catchphrases || [])
+          + '，语气=' + (style.tone || '?')
+          + (ex.length ? '，原话例句=' + JSON.stringify(ex) : '');
+      })
       .filter(Boolean).slice(0, 8);
-    return { lines, profiles: relevantProfiles, groupFeatures: this.store.profiles.groupFeatures || {} };
+    const gs = this.store.profiles.groupStyle || {};
+    return { lines, profiles: relevantProfiles, groupFeatures: this.store.profiles.groupFeatures || {}, groupStyle: gs };
   }
 
   async maybeRespond(msg, hits) {
@@ -71,9 +82,12 @@ class InterestChannel {
       '',
       '群里的整体特征：' + JSON.stringify(ctx.groupFeatures),
       '',
+      '这个群的说话方式：' + JSON.stringify(ctx.groupStyle || {}),
+      '',
       '请判断：',
       '1. 你现在是否真的感兴趣、值得接话？（不要为了回而回）',
-      '2. 如果值得，写一句像群友一样自然的短回复（1~2 句、口语、不要科普说教、不要 @ 所有人）。',
+      '2. 如果值得，写一句要发到群里的话：**必须模仿这个群的语言方式**（句子长短、标点习惯、口头禅、梗、语气），',
+      '   短、口语、不科普、不纠正、不 @ 所有人；不要用书面语。',
       '',
       '严格输出 JSON：{"interested":true/false,"should_reply":true/false,"reply":"要发的话或null","reason":"一句话理由"}'
     ].join('\n');
@@ -98,7 +112,7 @@ class InterestChannel {
     if (reply.length < (this.ic.minReplyChars || 1)) return decision;
     if (reply.length > (this.ic.maxReplyChars || 120)) reply = reply.slice(0, this.ic.maxReplyChars || 120);
     await sleep(800 + Math.floor(Math.random() * 1200));
-    const r = await this.qq.sendTo(chat, reply);
+    const r = await this.qq.sendTo(chat, reply, 'group');
     if (r.ok) this.store.consumeSpeakQuota();
     return decision;
   }
